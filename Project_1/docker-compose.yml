@@ -7,3 +7,6 @@ services:
       - "80:80"
     volumes:
       - /home/asir2a/Escritorio/SRI/bind9/Project_1:/var/www/html:ro
+      - confApache:/etc/apache2
+volumes:
+  confApache:
