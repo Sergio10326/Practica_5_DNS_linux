@@ -8,6 +8,9 @@ $TTL    3600
 ;
 @       IN      NS      ns.asircastelao.com.
 @       IN      MX      10 servidorcorreo.asircastelao.org.
+@       IN      CNAME   ns.asircastelao.com/subdomain
+@       IN      TXT     ns.asircastelao.com.
+@       IN      SOA     ns.asircastelao.com.
 
 ns     IN      A       10.1.0.254
 etch    IN      A       10.1.0.2
