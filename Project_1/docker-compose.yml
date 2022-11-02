@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  apache_php_server:
+    container_name: apache_php_server
+    image: php:7.2-apache
+    ports:
+      - "80:80"
+    volumes:
+      - /home/asir2a/Escritorio/SRI/bind9/Project_1:/var/www/html:ro
