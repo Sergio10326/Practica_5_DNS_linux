@@ -1,7 +1,7 @@
 version: "3.3"
 services:
-  apache_php_server:
-    container_name: apache_php_server
+  asir_apache_php_server:
+    container_name: asir_apache_php_server
     image: php:7.2-apache
     ports:
       - "80:80"
