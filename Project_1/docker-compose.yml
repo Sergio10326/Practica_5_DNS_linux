@@ -5,8 +5,28 @@ services:
     image: php:7.2-apache
     ports:
       - "80:80"
+      - "8000:8000"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    dns:
+      - 10.1.0.254   # el contenedor dns server 
     volumes:
-      - /home/asir2a/Escritorio/SRI/bind9/Project_1:/var/www/html:ro
-      - confApache:/etc/apache2
+      - /home/asir2a/Escritorio/SRI/bind9/Project_1/html:/var/www/html:ro
+      - /home/asir2a/Escritorio/SRI/bind9/Project_1/confApache:/etc/apache2
+    networks:
+      bind9_subnet:
+        ipv4_address: 10.1.0.200
+  dns_server:
+    container_name: dns_server
+    image: internetsystemsconsortium/bind9:9.16
+    volumes:
+      - /home/asir2a/Escritorio/SRI/bind9/conf:/etc/bind
+      - /home/asir2a/Escritorio/SRI/bind9/zonas:/var/lib/bind
+    networks:
+      bind9_subnet:
+        ipv4_address: 10.1.0.254 
+networks:
+  bind9_subnet:
+    external: true 
 volumes:
   confApache:
